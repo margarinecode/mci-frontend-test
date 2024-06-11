@@ -87,26 +87,12 @@ async function loadData() {
   try {
     const response = await $fetch(`/api/todos`);
     taskList.value = response;
-    console.log(response);
   } catch (error) {
     console.error("Cannot Access Server");
   }
 }
 async function createTask() {
-  try {
-    const payload = {
-      task: taskDescription.value,
-      duration: durationTask.value + selectedDescDuration.value.code,
-    };
-    const response = await $fetch(`/api/todos`, {
-      method: "POST",
-      body: payload,
-    });
-    loadData();
-    return response;
-  } catch (error) {
-    console.error("Error Create a New Task)");
-  }
+  // TODO : Implement Create Task to Backend
 }
 async function editText() {
   editable.value = true;
@@ -115,22 +101,10 @@ async function cancelEdit() {
   editable.value = false;
 }
 async function updateTask(data) {
-  try {
-    const payload = {
-      task: data.task,
-      duration: data.duration,
-    };
-    // const response = await $fetch(`/api/todos/${id}`, {
-    //   method: "PATCH",
-    // });
-    console.log(payload);
-
-    return response;
-  } catch (error) {
-    console.error("Error Create a New Task)");
-  }
+  // TODO : Implement Update Task to Backend
 }
 async function deleteTask(id) {
+  // TODO : Implement Condition Hard Delete
   try {
     const response = await $fetch(`/api/todos/${id}`, {
       method: "DELETE",
